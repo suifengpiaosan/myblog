@@ -8,3 +8,5 @@ def hello(request):
     html = template.render({'Students':students})
     return HttpResponse(html)
 # Create your views here.
+def home(request):
+    return None
