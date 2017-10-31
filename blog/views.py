@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.loader import get_template
-from .models import Student
+from .models import Article,Category
 def hello(request):
     template = get_template('hello.html')
-    students = Student.objects.all()
-    html = template.render({'Students':students})
+
+    html = template.render(locals())
     return HttpResponse(html)
-# Create your views here.
-def home(request):
-    return None
+def homepage(requeset):
+    template = get_template('index.html')
+    article = Article.objects.all()
+
+    html = template.render(locals())
+    return HttpResponse(html)

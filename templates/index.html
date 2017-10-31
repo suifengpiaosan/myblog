@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>竹间小屋</title>
+    <style type="text/css">
+        body{
+            font:20pt Verdana,Arial,Georgia,sans-serif;
+        }
+
+        a.likes{
+            text-decoration: none;
+            left:500px;
+            position: absolute;
+        }
+         a.views{
+            text-decoration: none;
+            left:1200px;
+            position: absolute;
+        }
+         a.built_time{
+            text-decoration: none;
+            left:500px;
+            position: absolute;
+        }
+        #nav{
+            float:left;
+            margin: 0px 0px 0px 0px;
+            background-color:white;
+            width: 2000px;
+            height: 50px;
+            position: fixed;
+            top:0px;
+            left:0px;
+
+
+            border: 1px solid #EEE8DD;
+            border-top: none;
+
+
+        }
+         logo{
+             left:0px;
+             position: absolute;
+
+        }
+        a{
+            color: black;
+        }
+        #nav ul{
+            list-style: none;
+            display: inline;
+            margin: 0px;
+            padding: 0px;
+        }
+        #nav li{
+            display: inline;
+            line-height: 1.8em;
+            margin: 0px 150px;
+
+
+        }
+        #nav ul li a:link,#nav ul li a:visited{
+            font-size: 20pt;
+            font-weight: bold;
+            text-decoration: none;
+{#            padding: 7px;#}
+        }
+
+
+
+    </style>
+</head>
+<body>
+<h1></h1>
+<div id="nav">
+    <ul>
+{#        <li><a href="/homepage/">竹简</a> </li>#}
+        <li><img class="logo" src="https://i.imgur.com/sUsSkPC.jpg" style="height: 40px;width: 40px"alt="logo"/></li>
+        <li><a href="/homepage/">首页</a> </li>
+        <li><a href="/login">登录</a> </li>
+        <li><a href="/resign">注册</a> </li>
+        <li><a href="/about">联系我</a> </li>
+    </ul>
+</div>
+
+    {% for articles in article %}
+        <h3 style="width: 800px;left: 500px;position: absolute">
+    {{ articles.title }}
+        </h3>
+        <br><br>
+
+        <p style="width: 800px;left: 500px;position: absolute">
+        {{ articles.body|truncatechars:30 }}
+        </p>
+        <br>
+        <br>
+{#        <a class="likes" href="#" >点赞：{{ articles.likes }}</a>#}
+        <a class="built_time">创建时间：{{ articles.build_t }}</a>
+        <a class="views" href="#" >浏览：{{ articles.views }}</a>
+        <br>
+
+    {% endfor %}
+
+
+</body>
+
+</html>
